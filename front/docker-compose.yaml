@@ -1,9 +1,9 @@
 version: '3'
 services:
-  next:
+  guro:
     # tomar la imagen del dockerfile
     build: .
-    container_name: next
+    container_name: guro
     working_dir: /app
     restart: unless-stopped
     volumes:

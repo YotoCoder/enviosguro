@@ -4,3 +4,10 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+module.exports = {
+  env: {
+    APIhost: 'http://localhost:3000',
+    // APIhost: 'https://api.igrejaemribeirao.com.br',
+  },
+}

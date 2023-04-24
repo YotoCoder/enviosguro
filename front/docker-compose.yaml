@@ -1,0 +1,21 @@
+version: '3'
+services:
+  next:
+    # tomar la imagen del dockerfile
+    build: .
+    container_name: next
+    working_dir: /app
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    command: >
+      sh -c "yarn build &&
+             yarn start"
+    ports:
+      - 3001:3001
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - .env
+    expose:
+      - 3001

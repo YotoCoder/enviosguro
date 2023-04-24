@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Contacto
+
+from .serializers import ContactoSerializer
+
+class ContactoViewSet(viewsets.ModelViewSet):
+    queryset = Contacto.objects.all()
+    serializer_class = ContactoSerializer
+    http_method_names = ['post']

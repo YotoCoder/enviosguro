@@ -1,6 +1,59 @@
-import React from "react";
+import React, { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 const Contact = () => {
+  const [nombre, setNombre] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [telefono, setTelefono] = React.useState("");
+  const [mensaje, setMensaje] = React.useState("");
+
+  const [errors, setErrors] = React.useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    mensaje: "",
+  });
+
+  const limpiarFormulario = () => {
+    setNombre("");
+    setEmail("");
+    setTelefono("");
+    setMensaje("");
+    setErrors({
+      nombre: "",
+      email: "",
+      telefono: "",
+      mensaje: "",
+    });
+  };
+
+  const handleSendEmail = (e) => {
+    e.preventDefault();
+
+    toast.promise(
+      axios.post("http://localhost:8000/api/contacto/", {
+        nombre: nombre,
+        email: email,
+        telefono: telefono,
+        mensaje: mensaje,
+      }),
+      {
+        loading: "Enviando...",
+        success: (data) => {
+          console.log(data);
+          limpiarFormulario();
+          return "Mensaje enviado correctamente";
+        },
+        error: (error) => {
+          console.log(error);
+          setErrors(error.response.data);
+          return "Error al enviar el mensaje";
+        },
+      }
+    );
+  };
+
   return (
     <div className="lg:flex items-start">
       <div className="hero min-h-min relative bg-base-200" id="contact">
@@ -38,7 +91,6 @@ const Contact = () => {
               <img src="/icons/facebook.svg" className="w-9 h-9" />
               <p className="font-extrabold">Envios Guro</p>
             </div>
-
           </div>
         </div>
       </div>
@@ -55,43 +107,68 @@ const Contact = () => {
             </p>
             <form className="py-2 font-bold border-gray-300 border-b-2">
               <div className="flex flex-col gap-3">
+              <label className="text-red-500">{errors.nombre}</label>
                 <input
                   type="text"
                   placeholder="Nombre Completo"
-                  className="input input-bordered w-full max-w-xs drop-shadow-xl"
+                  className={`input input-bordered w-full max-w-xs drop-shadow-xl
+                              ${errors.nombre ? "border-red-500" : ""}
+                  `}
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
                 />
 
+                <label className="text-red-500">{errors.email}</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Correo Electrónico"
-                  className="input input-bordered w-full max-w-xs drop-shadow-xl"
+                  className={`input input-bordered w-full max-w-xs drop-shadow-xl
+                              ${errors.email ? "border-red-500" : ""}
+                  `}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
-
+                
+                <label className="text-red-500">{errors.telefono}</label>
                 <input
                   type="number"
                   name="telefono"
                   id="telefono"
                   placeholder="Telefono"
-                  className="input input-bordered w-full max-w-xs drop-shadow-xl"
+                  className={`input input-bordered w-full max-w-xs drop-shadow-xl
+                              ${errors.email ? "border-red-500" : ""}`}
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
                 />
 
+                <label className="text-red-500">{errors.mensaje}</label>
                 <textarea
                   name="message"
                   id="message"
                   placeholder="Mensaje"
                   cols="30"
                   rows="10"
-                  className="border-gray-300 border-2 rounded-md p-2 drop-shadow-xl"
+                  value={mensaje}
+                  className={`border-gray-300 border-2 rounded-md p-2 drop-shadow-xl
+                             ${errors.mensaje ? "border-red-500" : ""}
+                  `}
+                  onChange={(e) => setMensaje(e.target.value)}
                 ></textarea>
 
-                <button className="my-2 btn btn-primary">Enviar Mensaje</button>
+                <button
+                  className="my-2 btn btn-primary"
+                  onClick={(e) => handleSendEmail(e)}
+                >
+                  Enviar Mensaje
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Procedimiento from "./components/Procedimiento"
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   return (
@@ -23,6 +24,14 @@ export default function Home() {
       <ButtonUp />
 
       <Footer />
+
+      <Toaster position="top-center" reverseOrder={false} 
+              toastOptions={{
+                style: {
+                  fontSize: '14px',
+                },
+              }}
+      />
       
     </>
   )

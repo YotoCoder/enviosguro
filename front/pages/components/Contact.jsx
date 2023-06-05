@@ -56,7 +56,7 @@ const Contact = () => {
 
   return (
     <div className="lg:flex items-start">
-      <div className="hero min-h-min relative bg-base-200" id="contact">
+      <div className="hero min-h-screen relative bg-base-200" id="contact">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div>
             <h1 className="text-3xl font-bold border-gray-300 border-b-2 pb-4 mb-4">
@@ -95,7 +95,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="hero min-h-min relative bg-base-200" id="contact">
+      <div className="hero min-h-screen relative bg-base-200" id="contact">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="w-80">
             <h1 className="text-3xl font-bold border-gray-300 border-b-2 pb-4 mb-4">

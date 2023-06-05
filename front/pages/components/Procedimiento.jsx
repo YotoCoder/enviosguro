@@ -6,14 +6,14 @@ const Procedimiento = () => {
   return (
     <motion.div
       id="procedimiento"
-      className="container mx-auto m-auto"
+      className="container mx-auto m-auto min-h-screen pt-14 mt-5"
       transition={{
         ease: "linear",
         duration: 2,
         x: { duration: 1 },
       }}
     >
-      <h1 className="text-3xl flex items-center justify-center font-bold border-gray-300 pb-4 mb-4 pt-5">
+      <h1 className="lg:text-3xl text-2xl  flex items-center justify-center font-bold border-gray-300 pb-4 mb-4 pt-5">
         PROCEDIMIENTO DE ENVÍO
       </h1>
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
@@ -68,7 +69,7 @@ const Navbar = () => {
             <a className="font-bold" href="#about" >¿QUIÉNES SOMOS?</a>
           </li>
           <li tabIndex={0}>
-            <a>
+            <a className="font-bold">
               SERVICIOS
               <svg
                 className="fill-current"
@@ -82,10 +83,10 @@ const Navbar = () => {
             </a>
             <ul className="p-2 bg-white">
               <li>
-                <a>Remesas a venezuela</a>
+                <Link href="#procedimiento">Remesas a venezuela</Link>
               </li>
               <li>
-                <a>Remesas a otros paises </a>
+                <Link href="#procedimiento">Remesas a otros paises </Link>
               </li>
             </ul>
           </li>
@@ -95,7 +96,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn" href="#procedimiento">¿CÓMO ENVÍO UNA REMESA?</a>
+        <Link className="btn" href="#procedimiento">¿CÓMO ENVÍO UNA REMESA?</Link>
       </div>
     </div>
   );

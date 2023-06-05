@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -5,9 +6,9 @@ const Footer = () => {
     <>
     <footer className="footer footer-center p-10 bg-base-300 text-base-content rounded">
   <div className="grid grid-flow-col gap-4">
-    <a className="link link-hover">Quienes Somos?</a> 
-    <a className="link link-hover">Contacto</a> 
-    <a className="link link-hover">Preguntas Frecuentes</a>
+    <Link href="#about" className="link link-hover">Quienes Somos?</Link> 
+    <Link href="#contact" className="link link-hover">Contacto</Link> 
+    <Link href="#procedimiento" className="link link-hover">Preguntas Frecuentes</Link>
   </div> 
   <div>
     <div className="grid grid-flow-col gap-4">

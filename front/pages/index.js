@@ -17,7 +17,7 @@ export default function Home() {
 
       <About />
 
-      <Procedimiento />
+      <Procedimiento/>
 
       <Contact />
 

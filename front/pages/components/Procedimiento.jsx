@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 const Procedimiento = () => {
   return (
     <motion.div
-        id="procedimiento"
+        id="procedimiento" className='container mx-auto m-auto'
         transition={{
             ease: "linear",
             duration: 2,
@@ -13,9 +13,9 @@ const Procedimiento = () => {
           }}
       
     >
-        <h1 className="text-3xl flex items-center justify-center font-bold border-gray-300 pb-4 mb-4">PROCEDIMIENTO DE ENVÍO</h1>
+        <h1 className="text-3xl flex items-center justify-center font-bold border-gray-300 pb-4 mb-4 pt-5">PROCEDIMIENTO DE ENVÍO</h1>
         
-        <div className='flex'>
+        <div className='flex justify-around'>
             <div className="card mx-6 w-96 bg-base-100 shadow-2xl">
                 <div className="card-body">
                     <h1 className='text-5xl border-b-2 py-3 font-bold'>01</h1>
@@ -56,7 +56,7 @@ const Procedimiento = () => {
             </div>
             </div>
 
-            <div className='flex my-8'>
+            <div className='flex my-8 justify-around'>
                 <div className="card mx-6 w-96 h-80 bg-base-100 shadow-2xl">
                     <div className="card-body">
                         <h1 className='text-5xl border-b-2 py-3 font-bold'>04</h1>
@@ -75,7 +75,7 @@ const Procedimiento = () => {
                     </div>
                 </div>
 
-                <div className="card w-96 bg-primary text-primary-content">
+                <div className="card mx-6  w-96 bg-primary text-primary-content">
                     <div className="card-body">
                         <h2 className="text-4xl flex items-center justify-center py-3 font-bold">¿Tienes Dudas?</h2>
                         <p>Atendemos las 24 horas via WhatsApp</p>

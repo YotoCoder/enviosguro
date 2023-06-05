@@ -111,20 +111,20 @@ const Contact = () => {
                 <input
                   type="text"
                   placeholder="Nombre Completo"
-                  className={`input input-bordered w-full max-w-xs drop-shadow-xl
+                  className={`input input-bordered placeholder-zinc-300 color-white w-full max-w-xs drop-shadow-xl
                               ${errors.nombre ? "border-red-500" : ""}
                   `}
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
                 />
 
-                <label className="text-red-500">{errors.email}</label>
+                <label className="text-red-500 ">{errors.email}</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Correo Electrónico"
-                  className={`input input-bordered w-full max-w-xs drop-shadow-xl
+                  placeholder="Correo Electrónico "
+                  className={`input input-bordered placeholder-zinc-300 w-full max-w-xs drop-shadow-xl
                               ${errors.email ? "border-red-500" : ""}
                   `}
                   value={email}
@@ -137,7 +137,7 @@ const Contact = () => {
                   name="telefono"
                   id="telefono"
                   placeholder="Telefono"
-                  className={`input input-bordered w-full max-w-xs drop-shadow-xl
+                  className={`input input-bordered placeholder-zinc-300 w-full max-w-xs drop-shadow-xl
                               ${errors.email ? "border-red-500" : ""}`}
                   value={telefono}
                   onChange={(e) => setTelefono(e.target.value)}
@@ -151,7 +151,7 @@ const Contact = () => {
                   cols="30"
                   rows="10"
                   value={mensaje}
-                  className={`border-gray-300 border-2 rounded-md p-2 drop-shadow-xl
+                  className={`border-gray-300 placeholder-zinc-300 border-2 rounded-md p-2 drop-shadow-xl
                              ${errors.mensaje ? "border-red-500" : ""}
                   `}
                   onChange={(e) => setMensaje(e.target.value)}

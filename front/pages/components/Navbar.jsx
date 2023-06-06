@@ -27,11 +27,11 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a href="#about">¿QUIENES SOMOS?</a>
             </li>
             <li tabIndex={0}>
               <a className="justify-between">
-                Parent
+                SERVICIOS
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -42,17 +42,17 @@ const Navbar = () => {
                   <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                 </svg>
               </a>
-              <ul className="p-2">
+              <ul className="p-2 bg-base-100">
                 <li>
-                  <a>Submenu 1</a>
+                  <a className="" href="#procedimiento">Remesas a venezuela</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a className="" href="#procedimiento">Remesas a otros paises </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a href="#contact">CONTACTO</a>
             </li>
           </ul>
         </div>
@@ -68,7 +68,7 @@ const Navbar = () => {
           <li>
             <a className="font-bold" href="#about" >¿QUIÉNES SOMOS?</a>
           </li>
-          <li tabIndex={0}>
+          <li tabIndex={0} className="">
             <a className="font-bold">
               SERVICIOS
               <svg
@@ -83,10 +83,10 @@ const Navbar = () => {
             </a>
             <ul className="p-2 bg-white">
               <li>
-                <Link href="#procedimiento">Remesas a venezuela</Link>
+                <a href="#procedimiento">Remesas a venezuela</a>
               </li>
               <li>
-                <Link href="#procedimiento">Remesas a otros paises </Link>
+                <a href="#procedimiento">Remesas a otros paises </a>
               </li>
             </ul>
           </li>
@@ -96,7 +96,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn" href="#procedimiento">¿CÓMO ENVÍO UNA REMESA?</Link>
+        <Link className="btn w-full md:w-1/2" href="#procedimiento">¿CÓMO ENVÍO UNA REMESA?</Link>
       </div>
     </div>
   );

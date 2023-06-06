@@ -6,7 +6,7 @@ const About = () => {
     <div className="hero min-h-screen bg-base-200 " id="about">
   <div className="hero-content flex-col lg:flex-row">
   <img src="/images/1.jpg" className="rounded-lg shadow-2xl" />
-    <div>
+    <div className="text-center">
       <h1 className="text-5xl font-bold mb-5">¿Quiénes somos?</h1>
       <b className="text-2xl mt-5">Envios Guro S.A.C.</b>
       <p className="py-6">Ante la necesidad de mantener el lazo de ayuda entre venezolanos

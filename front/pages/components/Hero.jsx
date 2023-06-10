@@ -30,7 +30,6 @@ const Hero = () => {
             Enviar Ahora
           </Link>
           
-          <motion.img {...scale} className="w-40 mx-auto pt-8" src="/images/banderas/arrowu.png" alt="hero" />
           <motion.div className="flex pt-4 justify-between" >
             <motion.img {...scale} className="w-16" src="/images/banderas/pe.png" alt="pe" />
             <motion.img {...scale} className="w-16" src="/images/banderas/co.png" alt="co" />
@@ -38,7 +37,6 @@ const Hero = () => {
             <motion.img {...scale} className="w-16" src="/images/banderas/cl.png" alt="cl" />
             <motion.img {...scale} className="w-16" src="/images/banderas/ve.png" alt="ve" />
           </motion.div>
-          <motion.img {...scale} className="w-40 mx-auto pt-4" src="/images/banderas/arrowd.png" alt="hero" />
         </div>
       </div>
     </div>

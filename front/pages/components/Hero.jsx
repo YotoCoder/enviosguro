@@ -4,10 +4,13 @@ import { motion } from "framer-motion";
 import scale from "@/animations/scale";
 import Link from "next/link";
 
-const wtsp = {
+export const wtsp = {
   text: "Hola Estoy interesado en enviar una remesa.",
   number: "51935291169",
 };
+
+
+
 
 const Hero = () => {
   return (

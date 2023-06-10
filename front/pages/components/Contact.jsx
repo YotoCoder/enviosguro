@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -7,7 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import upDown from "@/animations/upDown";
 
 import { motion } from "framer-motion";
-import scale from "@/animations/scale";
 
 const schema = yup.object().shape({
   email: yup
@@ -18,6 +17,28 @@ const schema = yup.object().shape({
   phone: yup.string().required("El telefono es requerido"),
   name: yup.string().required("El nombre es requerido"),
 });
+
+const wtsp = {
+  text: "Hola Estoy interesado en enviar una remesa.",
+  number: "51935291169",
+};
+
+
+const contactDetails = [
+  ["rsoto@enviosgurosac.com", "/icons/email.svg"],
+  ["935119585", "/icons/phone.svg"],
+  ["935291169", "/icons/ws.svg", `https://wa.me/${wtsp.number}?text=${wtsp.text}`],
+  [
+    "@enviosguro",
+    "/icons/instagram.png",
+    "https://www.instagram.com/enviosguro",
+  ],
+  [
+    "Envios Guro",
+    "/icons/facebook.svg",
+    "https://www.facebook.com/people/Envios-Guro/100065355438982/",
+  ],
+];
 
 const Contact = () => {
   const {
@@ -42,7 +63,7 @@ const Contact = () => {
   };
 
   return (
-    <motion.div {...upDown}  className="lg:flex ">
+    <motion.div {...upDown} className="lg:flex ">
       <div className="hero min-h-screen relative bg-base-200" id="contact">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div>
@@ -54,30 +75,35 @@ const Contact = () => {
               Ca. Germán Schreiber 276 Oficina 240 San Isidro.
             </p>
 
-            <div className="flex items-center justify-start gap-2 pt-4">
-              <img src="/icons/email.svg" className="w-8 h-8" />
-              <p className="py-2 font-extrabold">enviosguro@gmail.com</p>
-            </div>
+            {contactDetails.map(([text, icon, href], index) =>
+              href ? (
+                <a
+                  className="flex items-center justify-start gap-2 pt-4 rounded-full"
+                  href={href}
+                  key={index}
+                  target="_blank"
+                >
+                  <img
+                    src={icon}
+                    className="w-8 h-8 rounded-full overflow-hidden"
+                  />
 
-            <div className="flex items-center justify-start py-2 gap-2">
-              <img src="/icons/phone.svg" className="w-8 h-8" />
-              <p className="font-extrabold">935119585</p>
-            </div>
+                  <span className="py-2 font-extrabold">{text}</span>
+                </a>
+              ) : (
+                <div
+                  className="flex items-center justify-start gap-2 pt-4"
+                  key={index}
+                >
+                  <img
+                    src={icon}
+                    className="w-8 h-8 rounded-full overflow-hidden"
+                  />
 
-            <div className="flex items-center justify-start py-1 gap-2">
-              <img src="/icons/ws.svg" className="w-9 h-9" />
-              <p className="font-extrabold">935291169</p>
-            </div>
-
-            <div className="flex items-center justify-start py-1 gap-2">
-              <img src="/icons/telegram.svg" className="w-8 h-8" />
-              <p className="font-extrabold">@enviosguro</p>
-            </div>
-
-            <div className="flex items-center justify-start py-1 gap-2">
-              <img src="/icons/facebook.svg" className="w-9 h-9" />
-              <p className="font-extrabold">Envios Guro</p>
-            </div>
+                  <p className="py-2 font-extrabold">{text}</p>
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>

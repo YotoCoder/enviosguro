@@ -9,9 +9,6 @@ export const wtsp = {
   number: "51942921763",
 };
 
-
-
-
 const Hero = () => {
   return (
     <div
@@ -24,7 +21,7 @@ const Hero = () => {
           <motion.h1 {...scale} className="mb-5 text-5xl font-bold text-white ">
             Necesitas enviar remesas a Venezuela?
           </motion.h1>
-          
+
           <Link
             target="_blank"
             href={`https://wa.me/${wtsp.number}?text=${wtsp.text}`}
@@ -32,6 +29,16 @@ const Hero = () => {
           >
             Enviar Ahora
           </Link>
+          
+          <motion.img {...scale} className="w-40 mx-auto pt-8" src="/images/banderas/arrowu.png" alt="hero" />
+          <motion.div className="flex pt-4 justify-between" >
+            <motion.img {...scale} className="w-16" src="/images/banderas/pe.png" alt="pe" />
+            <motion.img {...scale} className="w-16" src="/images/banderas/co.png" alt="co" />
+            <motion.img {...scale} className="w-16" src="/images/banderas/us.png" alt="us" />
+            <motion.img {...scale} className="w-16" src="/images/banderas/cl.png" alt="cl" />
+            <motion.img {...scale} className="w-16" src="/images/banderas/ve.png" alt="ve" />
+          </motion.div>
+          <motion.img {...scale} className="w-40 mx-auto pt-4" src="/images/banderas/arrowd.png" alt="hero" />
         </div>
       </div>
     </div>

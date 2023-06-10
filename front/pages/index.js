@@ -16,7 +16,7 @@ export default function Home() {
         <title>Envios Guro</title>
         <meta
           name="description"
-          content={"Meta Description"}
+          content={"Envio de Remesas a Venezuela y latinoamerica desde cualquier parte del mundo."}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/guro.ico" />

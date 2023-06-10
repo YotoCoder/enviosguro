@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const wtsp = {
   text: "Hola Estoy interesado en enviar una remesa.",
-  number: "51935291169",
+  number: "51942921763",
 };
 
 

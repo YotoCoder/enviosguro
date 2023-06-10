@@ -1,9 +1,13 @@
 import Link from "next/link";
 import React from "react";
 
+import { motion } from "framer-motion";
+import upDown from "@/animations/upDown";
+import scale from "@/animations/scale";
+
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 z-[1000] lg:py-1 lg:pt-2 z-1000 drop-shadow-xl sticky top-0">
+    <div className="navbar bg-base-100 z-[1000] lg:py-1 lg:pt-2 z-1000 drop-shadow-xl sticky top-0  left-0">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -22,8 +26,9 @@ const Navbar = () => {
               />
             </svg>
           </label>
-          <ul
+          <motion.ul
             tabIndex={0}
+            {...upDown}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
@@ -54,7 +59,7 @@ const Navbar = () => {
             <li>
               <a href="#contact">CONTACTO</a>
             </li>
-          </ul>
+          </motion.ul>
         </div>
         <div >
             {/* <a className="btn btn-ghost normal-case text-xl">Envios Guro SAC</a> */}
@@ -64,7 +69,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex lg:flex-col">
-        <ul className="menu menu-horizontal px-1">
+        <motion.ul {...upDown} className="menu menu-horizontal px-1">
           <li>
             <a className="font-bold" href="#about" >¿QUIÉNES SOMOS?</a>
           </li>
@@ -93,11 +98,11 @@ const Navbar = () => {
           <li>
             <a className="font-bold" href="#contact">CONTACTO</a>
           </li>
-        </ul>
+        </motion.ul>
       </div>
-      <div className="navbar-end">
-        <Link className="btn w-full md:w-1/2" href="#procedimiento">¿CÓMO ENVÍO UNA REMESA?</Link>
-      </div>
+      <motion.div {...upDown}  className="navbar-end">
+        <Link  className="btn w-full md:w-1/2" href="#procedimiento">¿CÓMO ENVÍO UNA REMESA?</Link>
+      </motion.div>
     </div>
   );
 };

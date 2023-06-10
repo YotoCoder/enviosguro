@@ -1,6 +1,7 @@
 import React from "react";
 
 import { motion } from "framer-motion";
+import scale from "@/animations/scale";
 
 const Procedimiento = () => {
   return (
@@ -18,7 +19,7 @@ const Procedimiento = () => {
       </h1>
 
       <div className="flex flex-wrap flex-1 justify-around">
-        <div className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
+        <motion.div {...scale} className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
           <div className="card-body">
             <h1 className="text-5xl border-b-2 py-3 font-bold">01</h1>
             <h2 className="card-title">
@@ -43,45 +44,45 @@ const Procedimiento = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
+        <motion.div {...scale} className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
           <div className="card-body">
             <h1 className="text-5xl border-b-2 py-3 font-bold">02</h1>
             <h2 className="card-title">
               Realiza el deposito a cualquiera de nuestras cuentas bancarias.
             </h2>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
+        <motion.div {...scale} className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
           <div className="card-body">
             <h1 className="text-5xl border-b-2 py-3 font-bold">03</h1>
             <h2 className="card-title">
               Realiza el deposito a cualquiera de nuestras cuentas bancarias.
             </h2>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="card mx-6 w-96 h-80 bg-base-100 shadow-2xl mb-5">
+        <motion.div {...scale} className="card mx-6 w-96 h-80 bg-base-100 shadow-2xl mb-5">
           <div className="card-body">
             <h1 className="text-5xl border-b-2 py-3 font-bold">04</h1>
             <h2 className="card-title">
               Realiza el deposito a cualquiera de nuestras cuentas bancarias.
             </h2>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
+        <motion.div {...scale} className="card mx-6 w-96 bg-base-100 shadow-2xl mb-5">
           <div className="card-body">
             <h1 className="text-5xl border-b-2 py-3 font-bold">05</h1>
             <h2 className="card-title">
               Realiza el deposito a cualquiera de nuestras cuentas bancarias.
             </h2>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="card mx-6  w-96 bg-primary text-primary-content mb-5">
+        <motion.div {...scale} className="card mx-6  w-96 bg-primary text-primary-content mb-5">
           <div className="card-body">
             <h2 className="text-4xl items-center justify-center py-3 font-bold">
               ¿Tienes Dudas?
@@ -97,7 +98,7 @@ const Procedimiento = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
     </motion.div>

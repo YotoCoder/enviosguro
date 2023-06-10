@@ -1,61 +1,48 @@
 import React, { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import upDown from "@/animations/upDown";
+
+import { motion } from "framer-motion";
+import scale from "@/animations/scale";
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("No es un correo valido")
+    .required("El email es requerido"),
+  message: yup.string(),
+  phone: yup.string().required("El telefono es requerido"),
+  name: yup.string().required("El nombre es requerido"),
+});
 
 const Contact = () => {
-  const [nombre, setNombre] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [telefono, setTelefono] = React.useState("");
-  const [mensaje, setMensaje] = React.useState("");
-
-  const [errors, setErrors] = React.useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    mensaje: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
 
-  const limpiarFormulario = () => {
-    setNombre("");
-    setEmail("");
-    setTelefono("");
-    setMensaje("");
-    setErrors({
-      nombre: "",
-      email: "",
-      telefono: "",
-      mensaje: "",
-    });
-  };
-
-  const handleSendEmail = (e) => {
-    e.preventDefault();
-
+  const onSubmit = (data) => {
     toast.promise(
-      axios.post("http://localhost:8000/api/contacto/", {
-        nombre: nombre,
-        email: email,
-        telefono: telefono,
-        mensaje: mensaje,
-      }),
+      axios.post("https://nodemailer-rust.vercel.app/api/contact", data),
       {
-        loading: "Enviando...",
-        success: (data) => {
-          console.log(data);
-          limpiarFormulario();
-          return "Mensaje enviado correctamente";
-        },
-        error: (error) => {
-          console.log(error);
-          setErrors(error.response.data);
-          return "Error al enviar el mensaje";
-        },
+        loading: "Enviando Correo...",
+
+        success: "Correo Enviado!",
+
+        error: "Ups, algo salio mal.",
       }
     );
   };
 
   return (
-    <div className="lg:flex items-start">
+    <motion.div {...upDown}  className="lg:flex ">
       <div className="hero min-h-screen relative bg-base-200" id="contact">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div>
@@ -95,9 +82,9 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="hero min-h-screen relative bg-base-200" id="contact">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="w-80">
+      <div className="hero min-h-screen relative bg-base-200 px-4" id="contact">
+        <div>
+          <div className="w-full">
             <h1 className="text-3xl font-bold border-gray-300 border-b-2 pb-4 mb-4">
               ESCRÍBENOS
             </h1>
@@ -105,71 +92,59 @@ const Contact = () => {
               Llena el siguiente formulario y nos pondremos en contacto contigo
               lo antes posible.
             </p>
-            <form className="py-2 font-bold border-gray-300 border-b-2">
-              <div className="flex flex-col gap-3">
-              <label className="text-red-500">{errors.nombre}</label>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="py-2 font-bold border-gray-300 border-b-2"
+            >
+              <div className="flex flex-col gap-3 w-full">
+                {/* <label className="text-red-500">{errors.nombre}</label> */}
                 <input
                   type="text"
                   placeholder="Nombre Completo"
-                  className={`input input-bordered placeholder-zinc-300 color-white w-full max-w-xs drop-shadow-xl
-                              ${errors.nombre ? "border-red-500" : ""}
-                  `}
-                  value={nombre}
-                  onChange={(e) => setNombre(e.target.value)}
+                  className={`input input-bordered placeholder-zinc-300 color-white w-full  drop-shadow-xl`}
+                  {...register("name")}
                 />
 
-                <label className="text-red-500 ">{errors.email}</label>
+                <label className="text-red-500 ">{errors.name?.message}</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Correo Electrónico "
-                  className={`input input-bordered placeholder-zinc-300 w-full max-w-xs drop-shadow-xl
-                              ${errors.email ? "border-red-500" : ""}
-                  `}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  className={`input input-bordered placeholder-zinc-300 w-full drop-shadow-xl`}
+                  {...register("email")}
                 />
-                
-                <label className="text-red-500">{errors.telefono}</label>
+
+                <label className="text-red-500 ">{errors.email?.message}</label>
                 <input
                   type="number"
                   name="telefono"
                   id="telefono"
                   placeholder="Telefono"
-                  className={`input input-bordered placeholder-zinc-300 w-full max-w-xs drop-shadow-xl
-                              ${errors.email ? "border-red-500" : ""}`}
-                  value={telefono}
-                  onChange={(e) => setTelefono(e.target.value)}
+                  className={`input input-bordered placeholder-zinc-300 w-full  drop-shadow-xl`}
+                  {...register("phone")}
                 />
 
-                <label className="text-red-500">{errors.mensaje}</label>
+                <label className="text-red-500 ">{errors.phone?.message}</label>
                 <textarea
                   name="message"
                   id="message"
                   placeholder="Mensaje"
                   cols="30"
                   rows="10"
-                  value={mensaje}
-                  className={`border-gray-300 placeholder-zinc-300 border-2 rounded-md p-2 drop-shadow-xl
-                             ${errors.mensaje ? "border-red-500" : ""}
-                  `}
-                  onChange={(e) => setMensaje(e.target.value)}
+                  className={`border-gray-300 placeholder-zinc-300 border-2 rounded-md p-2 drop-shadow-xl`}
+                  {...register("message")}
                 ></textarea>
-
-                <button
-                  className="my-2 btn btn-primary"
-                  onClick={(e) => handleSendEmail(e)}
-                >
-                  Enviar Mensaje
-                </button>
+                <label className="text-red-500 ">
+                  {errors.message?.message}
+                </label>
+                <button className="my-2 btn btn-primary">Enviar Mensaje</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      
-    </div>
+    </motion.div>
   );
 };
 

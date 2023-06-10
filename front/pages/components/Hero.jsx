@@ -24,7 +24,7 @@ const Hero = () => {
           <motion.h1 {...scale} className="mb-5 text-5xl font-bold text-white ">
             Necesitas enviar remesas a Venezuela?
           </motion.h1>
-          <p className="mb-5"></p>
+          
           <Link
             target="_blank"
             href={`https://wa.me/${wtsp.number}?text=${wtsp.text}`}

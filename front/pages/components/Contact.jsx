@@ -164,7 +164,7 @@ const Contact = () => {
                 <label className="text-red-500 ">
                   {errors.message?.message}
                 </label>
-                <button className="my-2 btn btn-primary">Enviar Mensaje</button>
+                <button className="my-2 btn bg-[#036201]">Enviar Mensaje</button>
               </div>
             </form>
           </div>

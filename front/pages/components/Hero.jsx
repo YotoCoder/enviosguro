@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const wtsp = {
   text: "Hola Estoy interesado en enviar una remesa.",
-  number: "51942921763",
+  number: "51926220785",
 };
 
 const Hero = () => {

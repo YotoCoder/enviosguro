@@ -20,14 +20,14 @@ const schema = yup.object().shape({
 
 const wtsp = {
   text: "Hola Estoy interesado en enviar una remesa.",
-  number: "51942921763",
+  number: "51926220785",
 };
 
 
 const contactDetails = [
   ["rsoto@enviosgurosac.com", "/icons/email.svg"],
-  ["935119585", "/icons/phone.svg"],
-  ["942921763", "/icons/ws.svg", `https://wa.me/${wtsp.number}?text=${wtsp.text}`],
+  ["+51 935 119 585", "/icons/phone.svg"],
+  ["+51 926 220 785", "/icons/ws.svg", `https://wa.me/${wtsp.number}?text=${wtsp.text}`],
   [
     "@enviosguro",
     "/icons/instagram.png",
